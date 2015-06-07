@@ -12,7 +12,7 @@
         <div class="navbar-header">
             <%= link_to "抽選たろう", {controller: "/prize", action: :index}, class: "navbar-brand" %>
         </div>
-        <div class="navbar-right">
+<!--         <div class="navbar-right">
             <% if user_signed_in? %>
                 <%= "#{current_user.email}" %>
                 <%= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-default" %>
@@ -21,7 +21,7 @@
                 <%= link_to 'サインアップ', new_user_registration_path, class: "btn btn-default" %>
                 <%= link_to 'ログイン', new_user_session_path, class: "btn btn-default" %>
             <% end %>
-        </div>
+        </div> -->
     </div>
 </nav>
 <div class="container">

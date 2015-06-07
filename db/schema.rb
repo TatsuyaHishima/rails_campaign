@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520065142) do
+ActiveRecord::Schema.define(version: 20150607050717) do
 
   create_table "prizes", force: true do |t|
     t.integer  "user_id"
@@ -27,6 +27,38 @@ ActiveRecord::Schema.define(version: 20150520065142) do
     t.integer  "secondNum"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "thirdName"
+    t.string   "thirdTitle"
+    t.string   "thirdDescription"
+    t.integer  "thirdNum"
+    t.string   "fourthName"
+    t.string   "fourthTitle"
+    t.string   "fourthDescription"
+    t.integer  "fourthNum"
+    t.string   "fifthName"
+    t.string   "fifthTitle"
+    t.string   "fifthDescription"
+    t.integer  "fifthNum"
+    t.string   "sixthName"
+    t.string   "sixthTitle"
+    t.string   "sixthDescription"
+    t.integer  "sixthNum"
+    t.string   "seventhName"
+    t.string   "seventhTitle"
+    t.string   "seventhDescription"
+    t.integer  "seventhNum"
+    t.string   "eighthName"
+    t.string   "eighthTitle"
+    t.string   "eighthDescription"
+    t.integer  "eighthNum"
+    t.string   "ninethName"
+    t.string   "ninethTitle"
+    t.string   "ninethDescription"
+    t.integer  "ninethNum"
+    t.string   "tenthName"
+    t.string   "tenthTitle"
+    t.string   "tenthDescription"
+    t.integer  "tenthNum"
   end
 
   create_table "users", force: true do |t|

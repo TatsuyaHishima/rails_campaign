@@ -47,6 +47,150 @@
                 <% end %>            
             </p>
         <% end %>
+        <% if @prize.thirdTitle.present? || @prize.thirdName.present? || @prize.thirdNum.present? %>
+            <p class="prize_menu third">
+                <% if @prize.thirdTitle.present? %>
+                    <%= "#{@prize.thirdTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.thirdName.present? %>
+                    <%= "#{@prize.thirdName}" %>
+                <% end %>
+                 : 
+                <% if @prize.thirdNum.present? %>
+                    <%= "#{@prize.thirdNum}" %>
+                <% else %>
+                    <%= number_field_tag :third_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.fourthTitle.present? || @prize.fourthName.present? || @prize.fourthNum.present? %>
+            <p class="prize_menu fourth">
+                <% if @prize.fourthTitle.present? %>
+                    <%= "#{@prize.fourthTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.fourthName.present? %>
+                    <%= "#{@prize.fourthName}" %>
+                <% end %>
+                 : 
+                <% if @prize.fourthNum.present? %>
+                    <%= "#{@prize.fourthNum}" %>
+                <% else %>
+                    <%= number_field_tag :fourth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.fifthTitle.present? || @prize.fifthName.present? || @prize.fifthNum.present? %>
+            <p class="prize_menu fifth">
+                <% if @prize.fifthTitle.present? %>
+                    <%= "#{@prize.fifthTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.fifthName.present? %>
+                    <%= "#{@prize.fifthName}" %>
+                <% end %>
+                 : 
+                <% if @prize.fifthNum.present? %>
+                    <%= "#{@prize.fifthNum}" %>
+                <% else %>
+                    <%= number_field_tag :fifth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.sixthTitle.present? || @prize.sixthName.present? || @prize.sixthNum.present? %>
+            <p class="prize_menu sixth">
+                <% if @prize.sixthTitle.present? %>
+                    <%= "#{@prize.sixthTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.sixthName.present? %>
+                    <%= "#{@prize.sixthName}" %>
+                <% end %>
+                 : 
+                <% if @prize.sixthNum.present? %>
+                    <%= "#{@prize.sixthNum}" %>
+                <% else %>
+                    <%= number_field_tag :sixth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.seventhTitle.present? || @prize.seventhName.present? || @prize.seventhNum.present? %>
+            <p class="prize_menu seventh">
+                <% if @prize.seventhTitle.present? %>
+                    <%= "#{@prize.seventhTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.seventhName.present? %>
+                    <%= "#{@prize.seventhName}" %>
+                <% end %>
+                 : 
+                <% if @prize.seventhNum.present? %>
+                    <%= "#{@prize.seventhNum}" %>
+                <% else %>
+                    <%= number_field_tag :seventh_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.eighthTitle.present? || @prize.eighthName.present? || @prize.eighthNum.present? %>
+            <p class="prize_menu eighth">
+                <% if @prize.eighthTitle.present? %>
+                    <%= "#{@prize.eighthTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.eighthName.present? %>
+                    <%= "#{@prize.eighthName}" %>
+                <% end %>
+                 : 
+                <% if @prize.eighthNum.present? %>
+                    <%= "#{@prize.eighthNum}" %>
+                <% else %>
+                    <%= number_field_tag :eighth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.ninethTitle.present? || @prize.ninethName.present? || @prize.ninethNum.present? %>
+            <p class="prize_menu nineth">
+                <% if @prize.ninethTitle.present? %>
+                    <%= "#{@prize.ninethTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.ninethName.present? %>
+                    <%= "#{@prize.ninethName}" %>
+                <% end %>
+                 : 
+                <% if @prize.ninethNum.present? %>
+                    <%= "#{@prize.ninethNum}" %>
+                <% else %>
+                    <%= number_field_tag :nineth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <% if @prize.tenthTitle.present? || @prize.tenthName.present? || @prize.tenthNum.present? %>
+            <p class="prize_menu tenth">
+                <% if @prize.tenthTitle.present? %>
+                    <%= "#{@prize.tenthTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.tenthName.present? %>
+                    <%= "#{@prize.tenthName}" %>
+                <% end %>
+                 : 
+                <% if @prize.tenthNum.present? %>
+                    <%= "#{@prize.tenthNum}" %>
+                <% else %>
+                    <%= number_field_tag :tenth_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
         <%= submit_tag 'Go', class: "submit_button" %>
     <% end %>
 

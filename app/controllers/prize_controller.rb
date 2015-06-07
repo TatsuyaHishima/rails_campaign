@@ -26,46 +26,58 @@ class PrizeController < ApplicationController
             else
                 parameter[1] = params[:second_prize_num]
             end
-            # if @prize.thirdNum.present? then
-            #     parameter[2] = @prize.thirdNum
-            # else
-            #     parameter[2] = params[:third_prize_num]
-            # end
-            # if @prize.fourthNum.present? then
-            #     parameter[3] = @prize.fourthNum
-            # else
-            #     parameter[3] = params[:fourth_prize_num]
-            # end
-            # if @prize.fifthNum.present? then
-            #     parameter[4] = @prize.fifthNum
-            # else
-            #     parameter[4] = params[:fifth_prize_num]
-            # end
-            # if @prize.sixthNum.present? then
-            #     parameter[5] = @prize.sixthNum
-            # else
-            #     parameter[5] = params[:sixth_prize_num]
-            # end
-            # if @prize.seventhNum.present? then
-            #     parameter[6] = @prize.seventhNum
-            # else
-            #     parameter[6] = params[:seventh_prize_num]
-            # end
-            # if @prize.eighthNum.present? then
-            #     parameter[7] = @prize.eighthNum
-            # else
-            #     parameter[7] = params[:eighth_prize_num]
-            # end
-            # if @prize.ninethNum.present? then
-            #     parameter[8] = @prize.ninethNum
-            # else
-            #     parameter[8] = params[:nineth_prize_num]
-            # end
-            # if @prize.tenthNum.present? then
-            #     parameter[9] = @prize.tenthNum
-            # else
-            #     parameter[9] = params[:tenth_prize_num]
-            # end
+            if @prize.thirdNum.present? then
+                parameter[2] = @prize.thirdNum
+            else
+                parameter[2] = params[:third_prize_num]
+            end
+            if @prize.fourthNum.present? then
+                parameter[3] = @prize.fourthNum
+            else
+                parameter[3] = params[:fourth_prize_num]
+            end
+            if @prize.fifthNum.present? then
+                parameter[4] = @prize.fifthNum
+            else
+                parameter[4] = params[:fifth_prize_num]
+            end
+            if @prize.sixthNum.present? then
+                parameter[5] = @prize.sixthNum
+            else
+                parameter[5] = params[:sixth_prize_num]
+            end
+            if @prize.seventhNum.present? then
+                parameter[6] = @prize.seventhNum
+            else
+                parameter[6] = params[:seventh_prize_num]
+            end
+            if @prize.eighthNum.present? then
+                parameter[7] = @prize.eighthNum
+            else
+                parameter[7] = params[:eighth_prize_num]
+            end
+            if @prize.ninethNum.present? then
+                parameter[8] = @prize.ninethNum
+            else
+                parameter[8] = params[:nineth_prize_num]
+            end
+            if @prize.tenthNum.present? then
+                parameter[9] = @prize.tenthNum
+            else
+                parameter[9] = params[:tenth_prize_num]
+            end
+        else
+            @prize_total = params[:total_applicant].to_i
+            parameter[0] = params[:first_prize_num]
+            parameter[1] = params[:second_prize_num]
+            parameter[2] = params[:third_prize_num]
+            parameter[3] = params[:fourth_prize_num]
+            parameter[4] = params[:fifth_prize_num]
+            parameter[5] = params[:sixth_prize_num]
+            parameter[6] = params[:seventh_prize_num]
+            parameter[7] = params[:eighth_prize_num]
+            parameter[8] = params[:nineth_prize_num]
+            parameter[9] = params[:tenth_prize_num]
 
 
         end
@@ -92,7 +104,7 @@ class PrizeController < ApplicationController
         prize = Array.new(11){Array.new(0)}
 
 
-        for num in 0..1 do  # あとで9に変える
+        for num in 0..9 do  # あとで9に変える
             max = parameter[num].to_i
             # 当選者数が1より大きい場合
             if max != 0 then 
@@ -125,7 +137,11 @@ class PrizeController < ApplicationController
         def prize_find
             if user_signed_in? then 
                 if Prize.find_by(current_user.id).present? then
+                    @prize = nil
                     @prize = Prize.find_by(current_user.id)
+                    # if @prize.thirdTitle.nil?
+                    #     @prize.thridTitle = nil
+                    # end
                 else
                     @prize = nil
                 end
