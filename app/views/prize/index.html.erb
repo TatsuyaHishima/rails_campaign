@@ -1,0 +1,83 @@
+<div class="container text-center">
+
+<% if @notice.present? %>
+<div class="alert alert-danger notice"><%= @notice %></div>
+<% end %>
+
+<% if @prize.present? %>
+    <%= form_tag({ controller: :prize, action: :result }, class: :prize_form) do %>
+        <p class="total">総応募者数 : 
+            <% if @prize.totalNum.present? %>
+                <%= "#{@prize.totalNum}" %>
+            <% else %>
+                <%= number_field_tag :total_applicant, nil, in: 1..50000 %>
+            <% end %>
+        </p>
+        <p class="prize_menu first">
+            <% if @prize.firstTitle.present? %>
+                <%= "#{@prize.firstTitle}" %> 
+            <% else %>
+                一等 
+            <% end %>
+            <% if @prize.firstName.present? %>
+                <%= "#{@prize.firstName}" %>
+            <% end %>
+             : 
+            <% if @prize.firstNum.present? %>
+                <%= "#{@prize.firstNum}" %>
+            <% else %>
+                <%= number_field_tag :first_prize_num, nil, in: 1..50000 %>
+            <% end %>
+        </p>
+        <% if @prize.secondTitle.present? || @prize.secondName.present? || @prize.secondNum.present? %>
+            <p class="prize_menu second">
+                <% if @prize.secondTitle.present? %>
+                    <%= "#{@prize.secondTitle}" %> 
+                <% else %>
+                    二等 
+                <% end %>
+                <% if @prize.secondName.present? %>
+                    <%= "#{@prize.secondName}" %>
+                <% end %>
+                 : 
+                <% if @prize.secondNum.present? %>
+                    <%= "#{@prize.secondNum}" %>
+                <% else %>
+                    <%= number_field_tag :second_prize_num, nil, in: 1..50000 %>
+                <% end %>            
+            </p>
+        <% end %>
+        <%= submit_tag 'Go', class: "submit_button" %>
+    <% end %>
+
+<% else %>
+
+
+<%= form_tag({ controller: :prize, action: :result }, class: :prize_form) do %>
+    <p class="total">総応募者数 : 
+        <%= number_field_tag :total_applicant, nil, in: 1..50000 %>
+    </p>
+    <p class="prize_menu first">一等 : 
+        <%= number_field_tag :first_prize_num, nil, in: 1..50000 %></p>
+    <p class="prize_menu second">二等 : 
+<%= number_field_tag :second_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu third">三等 : 
+<%= number_field_tag :third_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu fourth">四等 : 
+<%= number_field_tag :fourth_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu fifth">五等 : 
+<%= number_field_tag :fifth_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu sixth">六等 : 
+<%= number_field_tag :sixth_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu seventh">七等 : 
+<%= number_field_tag :seventh_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu eighth">八等 : 
+<%= number_field_tag :eighth_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu nineth">九等 : 
+<%= number_field_tag :nineth_prize_num, nil, in: 0..50000 %></p>
+<p class="prize_menu tenth">十等 : 
+<%= number_field_tag :tenth_prize_num, nil, in: 0..50000 %></p>
+<%= submit_tag 'Go', class: "submit_button" %>
+<% end %>
+<% end %>
+</div>

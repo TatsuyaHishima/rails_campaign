@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campaign</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <%= link_to "抽選たろう", {controller: "/prize", action: :index}, class: "navbar-brand" %>
+        </div>
+        <div class="navbar-right">
+            <% if user_signed_in? %>
+                <%= "#{current_user.email}" %>
+                <%= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-default" %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+            <% else %>
+                <%= link_to 'サインアップ', new_user_registration_path, class: "btn btn-default" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "btn btn-default" %>
+            <% end %>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <% if notice.present? %>
+    <p class="alert alert-warning notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+</div>
+<%= yield %>
+
+<footer id="footer" class="container-fluid">
+    <small><a href="/">Copyright &copy; 2015 抽選たろう All rights reserved.</a></small>
+</footer>
+</body>
+</html>

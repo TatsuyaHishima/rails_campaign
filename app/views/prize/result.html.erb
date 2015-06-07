@@ -1,0 +1,25 @@
+<div class="container text-center">
+総応募者数 :
+<%= "#{@prize_total}" %><br>
+
+<% japanese_num = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"] %>
+<div class="clearfix">
+    <% for num in 0..japanese_num.length %>
+        <% if @prize_result[num].present? %>
+            <div class="contents clearfix">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <h3 class="prize_header<%= "#{num}" %>">
+                        <%= "#{japanese_num[num]}" %>等当選者
+                    </h3>
+                </div>
+                <div class="col-sm-4">
+                    <% for prize_num in 0..@prize_result[num].length-1 %>
+                    <p class="prize_winner_num<%= "#{num}" %>"><%= "#{@prize_result[num][prize_num]}" %></p>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+<%= link_to '戻る', {controller: :prize, action: :index}, class: "btn btn-default" %>
+</div>
